@@ -1,0 +1,112 @@
+import type { SimulationState } from './types';
+import { generateLogId } from './utils';
+
+export const DEFAULT_CHANNELS = ['chat-room', 'notifications', 'system-events'];
+
+export const createInitialState = (): SimulationState => ({
+  clients: [
+    {
+      id: 'client-a',
+      name: 'Client A',
+      deviceType: 'web',
+      status: 'disconnected',
+      assignedServerId: null,
+      subscribedChannels: ['chat-room', 'notifications'],
+      sentMessagesCount: 0,
+      receivedMessagesCount: 0,
+    },
+    {
+      id: 'client-b',
+      name: 'Client B',
+      deviceType: 'mobile',
+      status: 'disconnected',
+      assignedServerId: null,
+      subscribedChannels: ['chat-room', 'notifications'],
+      sentMessagesCount: 0,
+      receivedMessagesCount: 0,
+    },
+    {
+      id: 'client-c',
+      name: 'Client C',
+      deviceType: 'desktop',
+      status: 'disconnected',
+      assignedServerId: null,
+      subscribedChannels: ['chat-room'],
+      sentMessagesCount: 0,
+      receivedMessagesCount: 0,
+    },
+    {
+      id: 'client-d',
+      name: 'Client D',
+      deviceType: 'web',
+      status: 'disconnected',
+      assignedServerId: null,
+      subscribedChannels: ['notifications', 'system-events'],
+      sentMessagesCount: 0,
+      receivedMessagesCount: 0,
+    },
+  ],
+  servers: [
+    {
+      id: 'server-1',
+      name: 'WebSocket Server 1',
+      port: 8001,
+      status: 'healthy',
+      activeConnectionIds: [],
+      subscribedChannels: ['chat-room', 'notifications', 'system-events'],
+      messagesReceivedFromBroker: 0,
+      messagesDeliveredToClients: 0,
+      lastHeartbeat: Date.now(),
+    },
+    {
+      id: 'server-2',
+      name: 'WebSocket Server 2',
+      port: 8002,
+      status: 'healthy',
+      activeConnectionIds: [],
+      subscribedChannels: ['chat-room', 'notifications', 'system-events'],
+      messagesReceivedFromBroker: 0,
+      messagesDeliveredToClients: 0,
+      lastHeartbeat: Date.now(),
+    },
+  ],
+  channels: DEFAULT_CHANNELS,
+  routingStrategy: 'round-robin',
+  roundRobinCursor: 0,
+  messages: [],
+  eventLogs: [
+    {
+      id: generateLogId('init-1'),
+      timestamp: Date.now() - 3000,
+      type: 'sim_reset',
+      severity: 'info',
+      title: 'Lab Initialized',
+      details: 'WebSocket Gateway simulation engine initialized with 2 cluster nodes & 4 clients ready for experiments.',
+    },
+    {
+      id: generateLogId('init-2'),
+      timestamp: Date.now() - 2000,
+      type: 'channel_subscription',
+      severity: 'info',
+      title: 'Redis Pub/Sub Ready',
+      details: 'Broker channels configured: [chat-room, notifications, system-events]. Servers 1 and 2 subscribed.',
+    },
+  ],
+  isPaused: false,
+  animationSpeed: 1,
+  activeAnimation: null,
+  stats: {
+    publishedCount: 0,
+    deliveredCount: 0,
+    failedDeliveriesCount: 0,
+    routingAssignments: {
+      'server-1': 0,
+      'server-2': 0,
+    },
+    totalLatenciesSum: 0,
+    activityHistory: [
+      { time: '00:00', published: 0, delivered: 0, failed: 0 },
+    ],
+  },
+  observations: [],
+});
