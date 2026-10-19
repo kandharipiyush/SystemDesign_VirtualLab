@@ -279,7 +279,7 @@ export const PrintableReportModal: React.FC<PrintableReportModalProps> = ({ onCl
                 client-side exponential backoff and health-aware load balancing.
               </p>
               <p className="text-[11px] text-slate-500 italic">
-                * Note: This academic report is produced by an educational frontend simulation and reflects
+                * Note: This academic report is produced by an educational laboratory simulation and reflects
                 deterministic distributed state logic rather than live server hardware.
               </p>
             </div>

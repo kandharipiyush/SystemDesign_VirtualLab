@@ -26,7 +26,7 @@ export const QUESTION_BANK: QuizQuestion[] = [
     id: 'q2',
     question: 'In a multi-server WebSocket architecture, what is the primary role of Redis Pub/Sub?',
     options: [
-      'Rendering dynamic React components on the frontend client.',
+      'Rendering dynamic user interface components on client workstations.',
       'Acting as an authoritative DNS nameserver for WebSocket domains.',
       'Distributing published messages across independent server instances through shared channels.',
       'Storing encrypted client passwords and user authentication sessions.',

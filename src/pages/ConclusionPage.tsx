@@ -104,7 +104,7 @@ export const ConclusionPage: React.FC<ConclusionPageProps> = ({
             <span>Academic Modeling Transparency:</span>
           </div>
           <p className="text-blue-950 leading-relaxed">
-            This experiment is a purely client-side simulation engineered in TypeScript and React. It models
+            This experiment is an interactive educational simulation. It models
             distributed routing policies, Redis Pub/Sub channel semantics, and socket drop events conceptually.
             The results reflect the deterministic behavior of the modeled architecture and should not be cited
             as measured hardware or network infrastructure benchmarks.

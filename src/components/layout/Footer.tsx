@@ -49,9 +49,6 @@ export const Footer: React.FC = () => {
             Educational Virtual Laboratory for Distributed Systems. Distributed under
             Academic Open Access.
           </div>
-          <div className="flex items-center gap-4">
-            <span className="font-mono">React + TypeScript + Tailwind</span>
-          </div>
         </div>
       </div>
     </footer>

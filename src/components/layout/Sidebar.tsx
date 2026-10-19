@@ -164,7 +164,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
       {/* Footer in Sidebar */}
       <div className="p-3 border-t border-slate-100 text-[11px] text-slate-500 flex items-center justify-between">
-        <span className="font-mono text-[10px]">v1.4.0 · Frontend Only</span>
+        <span className="font-mono text-[10px]">v1.4.0</span>
         <button
           onClick={() => {
             if (window.confirm('Reset all section progress, quiz scores, and simulator state?')) {
